@@ -1,7 +1,7 @@
 import './globals.css';
 import React from 'react';
 import type { Metadata } from 'next';
-import AuthViewmodel from '@/viewmodels/auth';
+import Viewmodel from '@/viewmodels/index';
 import WalletConnectionProvider from '@/helpers/wallet-provider';
 
 export const metadata: Metadata = {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 function MyApp({ Component, pageProps }: any) {
   const sdk = { startLoginWithPhantom: setTimeout(() => { message: 'success' }, 500) };
-  const auth = new AuthViewmodel(sdk);
+  const auth = new Viewmodel(sdk);
   return (
     <WalletConnectionProvider>
       <Component {...pageProps} />
