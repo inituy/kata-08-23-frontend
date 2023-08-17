@@ -1,10 +1,12 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import Navbar from '@/components/navbar/navbar';
+import { Roboto } from 'next/font/google';
+
+const roboto = Roboto({ weight: '400', subsets: ['latin'] });
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <p>hola</p>
+    <main className={roboto.className}>
+      <Navbar />
     </main>
   )
 }

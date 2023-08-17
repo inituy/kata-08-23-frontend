@@ -1,6 +1,8 @@
 import './globals.css';
 import React from 'react';
-import type { Metadata } from 'next'
+import type { Metadata } from 'next';
+import AuthViewmodel from '@/viewmodels/auth';
+import WalletConnectionProvider from '@/helpers/wallet-provider';
 
 export const metadata: Metadata = {
   title: 'NFT Loyalty',
@@ -8,11 +10,12 @@ export const metadata: Metadata = {
 }
 
 function MyApp({ Component, pageProps }: any) {
-
+  const sdk = { startLoginWithPhantom: setTimeout(() => { message: 'success' }, 500) };
+  const auth = new AuthViewmodel(sdk);
   return (
-    <React.Fragment>
+    <WalletConnectionProvider>
       <Component {...pageProps} />
-    </React.Fragment>
+    </WalletConnectionProvider>
   );
 };
 
