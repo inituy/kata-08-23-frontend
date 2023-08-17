@@ -25,6 +25,6 @@
       "@/viewmodels": ["./viewmodels"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "viewmodels/auth.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "viewmodels/index.js"],
   "exclude": ["node_modules"]
 }

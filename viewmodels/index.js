@@ -1,7 +1,8 @@
-function AuthViewmodel(sdk) {
+function MainViewmodel(sdk) {
   // INITIALIZATION
   let self = this;
   self.sdk = sdk;
+  self.isLoadingLogin = false;
 
   let observers = [];
 
@@ -18,13 +19,17 @@ function AuthViewmodel(sdk) {
     notify();
   };
 
-  self.startLoginWithPhantom = () => {
+  self.startLoginWithPhantom = (data) => {
     self.isLoadingLogin = true;
     notify();
-    sdk.startLoginWithPhantom()
+    self.sdk.startLoginWithPhantom()
       .then(startLoginWithPhantomSuccess)
       .catch(startLoginWithPhantomError);
   };
+
+  self.isLoading = () => {
+    return self.isLoadingLogin;
+  }
 
   // OBSERVER PATTERN
 
@@ -46,4 +51,4 @@ function AuthViewmodel(sdk) {
   return self;
 };
 
-module.exports = AuthViewmodel;
+module.exports = MainViewmodel;
